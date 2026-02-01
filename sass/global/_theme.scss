@@ -1,7 +1,7 @@
-$color-primary: #3a00ff !default;
-$color-primary-alt: #6f6ffd !default;
-$color-secondary: #d42257 !default;
-$color-background: #d2fbf7 !default;
+$color-primary: #1d1d1f !default;
+$color-primary-alt: #0071E3 !default;
+$color-secondary:  #6E6E73 !default;
+$color-background: #FFFFFF !default;
 
 $brand-colors: (
   primary: $color-primary,
@@ -58,7 +58,7 @@ $font-sizes: (
   }
 
   --color-anchor: #{$link-color};
-  --font-family: "Baloo 2", sans-serif;
+  --font-family: "Inter", "Quicksand", sans-serif;
   --font-weight-strong: #{$font-weight-strong};
 
   @each $key, $size in $font-sizes {
