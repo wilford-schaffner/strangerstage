@@ -1,12 +1,4 @@
 nav {
-  /* optional: nav tokens with fallbacks */
-  --nav-text: var(--color-light);
-  --nav-border: var(--color-light);
-
-  /* gradient built from theme colors */
-  --nav-grad-start: color-mix(in srgb, var(--color-light) 8%, transparent);
-  --nav-grad-end: color-mix(in srgb, var(--color-primary) 15%, transparent);
-
   ul {
     > li > a {
       width: 100%;
@@ -15,9 +7,26 @@ nav {
       align-items: center;
       padding: 1.15rem 1.3rem;
 
-      color: var(--nav-text);
-      background: linear-gradient(to right, var(--nav-grad-start), var(--nav-grad-end));
-      border-top: 2px solid var(--nav-border);
+      color: var(--color-text-primary);
+      background: linear-gradient(
+        to right,
+        var(--color-bg-glow),
+        var(--color-bg-dark)
+      );
+
+      border-top: 2px solid var(--color-border-dark);
+
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: linear-gradient(
+          to right,
+          var(--color-red-muted),
+          var(--color-bg-deep)
+        );
+        border-top: 2px solid var(--color-border-glow);
+        color: var(--color-red-bright);
+      }
 
       &::before {
         display: none;
@@ -27,6 +36,7 @@ nav {
         content: "\2193";
         font-size: 1.5rem;
         line-height: 1;
+        color: var(--color-red-primary);
       }
     }
   }
