@@ -1,0 +1,33 @@
+nav {
+  /* optional: nav tokens with fallbacks */
+  --nav-text: var(--color-light);
+  --nav-border: var(--color-light);
+
+  /* gradient built from theme colors */
+  --nav-grad-start: color-mix(in srgb, var(--color-light) 8%, transparent);
+  --nav-grad-end: color-mix(in srgb, var(--color-primary) 15%, transparent);
+
+  ul {
+    > li > a {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.15rem 1.3rem;
+
+      color: var(--nav-text);
+      background: linear-gradient(to right, var(--nav-grad-start), var(--nav-grad-end));
+      border-top: 2px solid var(--nav-border);
+
+      &::before {
+        display: none;
+      }
+
+      &::after {
+        content: "\2193";
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+    }
+  }
+}
