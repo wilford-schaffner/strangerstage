@@ -85,7 +85,7 @@ nav a[href^="#"]::after {
   content: "↴";
 }
 
-// Match nav border-radius so hover doesn’t break rounded corners
+// Match nav border-radius so hover doesn't break rounded corners
 @media (min-width: $layout-breakpoint) {
   nav li:first-child a {
     border-top-left-radius: calc($border-radius-section - $border-width);
