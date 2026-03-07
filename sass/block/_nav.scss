@@ -1,0 +1,104 @@
+// Block: nav panel, list, links, arrows, hover
+
+nav {
+  display: flex;
+  background-color: var(--color-surface);
+  border-bottom: $border-width solid var(--color-primary);
+  font-size: 1rem;
+
+  @media (min-width: $layout-breakpoint) {
+    border: $border-width solid var(--color-primary);
+    border-radius: $border-radius-section;
+  }
+}
+
+nav ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (min-width: $layout-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+nav li {
+  width: 50%;
+
+  @media (min-width: $layout-breakpoint) {
+    width: 100%;
+  }
+}
+
+nav li:nth-child(n + 3) {
+  border-top: $border-width solid var(--color-primary);
+}
+
+nav li:nth-child(odd) {
+  border-right: $border-width solid var(--color-primary);
+
+  @media (min-width: $layout-breakpoint) {
+    border-right: none;
+  }
+}
+
+@media (min-width: $layout-breakpoint) {
+  nav li + li {
+    border-top: $border-width solid var(--color-primary);
+  }
+}
+
+nav a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  padding: 1em;
+  line-height: 1;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  @media (min-width: $layout-breakpoint) {
+    font-size: 1.25rem;
+    padding: 1.25em;
+  }
+}
+
+nav a::after {
+  content: "→";
+  margin-left: auto;
+  padding-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  @media (min-width: $layout-breakpoint) {
+    font-size: 1.5rem;
+  }
+}
+
+nav a[href^="#"]::after {
+  content: "↴";
+}
+
+// Match nav border-radius so hover doesn’t break rounded corners
+@media (min-width: $layout-breakpoint) {
+  nav li:first-child a {
+    border-top-left-radius: calc($border-radius-section - $border-width);
+    border-top-right-radius: calc($border-radius-section - $border-width);
+  }
+
+  nav li:last-child a {
+    border-bottom-left-radius: calc($border-radius-section - $border-width);
+    border-bottom-right-radius: calc($border-radius-section - $border-width);
+  }
+}
+
+nav a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}

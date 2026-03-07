@@ -1,0 +1,55 @@
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-text);
+  color: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+}
+
+h1 {
+  line-height: 1.125;
+  font-size: var(--font-size-h1);
+  font-size: clamp(2rem, 4vw, var(--font-size-h1));
+}
+
+h2 {
+  line-height: 1.25;
+  font-size: var(--font-size-h2);
+  font-size: clamp(1.5rem, 3vw, var(--font-size-h2));
+}
+
+h3 {
+  line-height: 1.25;
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  line-height: 1.25;
+  font-size: var(--font-size-h4);
+}
+
+strong {
+  font-weight: 600;
+}
+
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1.25em 1.5em;
+  background-color: var(--color-highlight-bg);
+  color: var(--color-highlight);
+  border-radius: $border-radius;
+
+  a {
+    color: var(--color-highlight);
+    border-bottom-color: var(--color-highlight);
+  }
+}

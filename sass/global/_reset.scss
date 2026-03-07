@@ -48,6 +48,39 @@ select {
   font: inherit;
 }
 
+/* Focus outline for accessibility (keyboard only, avoids outline on main when clicking) */
+:focus-visible {
+  outline-offset: 0.25rem;
+  outline: 0.25rem dashed var(--color-primary);
+}
+
+#main:focus {
+  outline: none;
+}
+
+/* Skip link: visually hidden until focused */
+.skip-link {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 1.125rem;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 0.75rem;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   * {

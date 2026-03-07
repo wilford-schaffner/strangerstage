@@ -1,7 +1,10 @@
 $color-primary: #1d1d1f !default;
-$color-primary-alt: #0071E3 !default;
-$color-secondary:  #6E6E73 !default;
-$color-background: #FFFFFF !default;
+$color-primary-alt: #ddd !default;
+$color-secondary: #fff !default;
+$color-background: #f2f2f2 !default;
+$color-surface: #fff !default;
+
+$layout-breakpoint: 1300px !default;
 
 $brand-colors: (
   primary: $color-primary,
@@ -20,6 +23,7 @@ $colors: map-merge(
   $brand-colors,
   (
     background: $color-background,
+    surface: $color-surface,
     text: $color-body,
     light: #fff,
   )
@@ -34,7 +38,15 @@ $colors: map-merge(
 }
 
 $link-color: color(primary) !default;
+$color-highlight: #c41e3a !default;
+$color-highlight-bg: #fef2f2 !default;
 $border-radius: 8px !default;
+$border-width: 1px !default;
+$border-radius-section: 12px !default;
+$border-radius-pill: 9999px !default;
+$shadow-section: 0 12px 32px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.1) !default;
+$shadow-section-inset: inset 0 2px 12px rgba(0, 0, 0, 0.12) !default;
+$shadow-section-inset-hover: inset 0 2px 12px rgba(0, 0, 0, 0.22) !default;
 
 $font-weight-strong: 500 !default;
 $font-size-h1: 6rem !default;
@@ -58,7 +70,10 @@ $font-sizes: (
   }
 
   --color-anchor: #{$link-color};
-  --font-family: "Inter", "Quicksand", sans-serif;
+  --color-highlight: #{$color-highlight};
+  --color-highlight-bg: #{$color-highlight-bg};
+  --font-family: "Work Sans", sans-serif;
+  --font-family-heading: "EB Garamond", Georgia, serif;
   --font-weight-strong: #{$font-weight-strong};
 
   @each $key, $size in $font-sizes {
@@ -66,4 +81,7 @@ $font-sizes: (
   }
 
   --border-radius: #{$border-radius};
+  --border-width: #{$border-width};
+  --border-radius-section: #{$border-radius-section};
+  --border-radius-pill: #{$border-radius-pill};
 }

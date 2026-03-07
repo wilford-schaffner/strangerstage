@@ -1,17 +1,30 @@
-#about {
-  padding: 2rem;
-  background-color: var(--color-background);
+// Block: #about-specific (feature list in Modern CSS section)
 
-  h2 {
-    font-family: var(--font-family);
-    font-size: 2rem;
-    color: var(--color-primary);
-  }
+#about ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
 
-  p {
-    font-family: var(--font-family);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--color-text);
-  }
+#about ul li {
+  margin-right: 0.75rem;
+  margin-bottom: 0.75rem;
+  display: inline-flex;
+  padding: 0.5em 1em 0.5em 0.5em;
+  border-radius: $border-radius-pill;
+  border: $border-width solid var(--color-primary);
+  background-color: var(--color-primary-alt);
+  align-items: center;
+}
+
+#about ul li::before {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: $border-width solid var(--color-primary);
+  background-color: var(--color-surface);
+  margin-right: 0.5em;
 }

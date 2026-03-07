@@ -1,0 +1,137 @@
+// Composition: where things go (flow, position, main content panel structure)
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: var(--color-background);
+
+  @media (min-width: $layout-breakpoint) {
+    padding-top: 8rem;
+  }
+}
+
+header {
+  width: 100%;
+
+  @media (min-width: $layout-breakpoint) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+  }
+}
+
+nav {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  @media (min-width: $layout-breakpoint) {
+    position: fixed;
+    top: 8rem;
+    left: 4rem;
+    z-index: 100;
+    width: 250px;
+    margin-bottom: 0;
+  }
+}
+
+// Content column: #main and #styles are full-width wrappers; panel width is set on the panels themselves
+#main,
+#main > .container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#main > .container {
+  align-items: center;
+}
+
+#main article + article {
+  margin-top: 4rem;
+}
+
+#styles {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.profile {
+  width: 95%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: $layout-breakpoint) {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 100;
+    width: 300px;
+  }
+}
+
+.page-footer {
+  width: 100%;
+
+  @media (min-width: $layout-breakpoint) {
+    padding-left: calc(300px + 2rem);
+    padding-right: calc(300px + 2rem);
+  }
+}
+
+// Main content panel appearance — same width and soft shadow for every section
+$content-panel-width: min(95%, 800px);
+
+article,
+#styles > .container {
+  width: $content-panel-width;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  border: $border-width solid var(--color-primary);
+  border-radius: $border-radius-section;
+  box-shadow: $shadow-section;
+  padding: 2rem;
+  position: relative;
+  background-color: var(--color-surface);
+
+  @media (min-width: $layout-breakpoint) {
+    padding: 4rem;
+  }
+}
+
+article > * + *,
+aside .container > * + * {
+  margin-top: 1em;
+}
+
+article > * + h1,
+article > * + h2,
+article > * + h3,
+article > * + h4,
+aside .container > * + h1,
+aside .container > * + h2,
+aside .container > * + h3,
+aside .container > * + h4 {
+  margin-top: 1.5em;
+}
+
+section + section {
+  margin-top: 2em;
+}
+
+section > * + * {
+  margin-top: 1em;
+}
+
+aside:not(#sponsor-footer) {
+  margin-top: 4rem;
+}
