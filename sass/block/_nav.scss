@@ -1,104 +1,109 @@
 // Block: nav panel, list, links, arrows, hover
 
+@use "../global/theme" as *;
+@use "../utility/logomark" as *;
+
 nav {
   display: flex;
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-alpha);
+  backdrop-filter: blur(6px);
   border-bottom: $border-width solid var(--color-primary);
+  box-shadow:
+    0 0 0 1px var(--panel-border-glow-soft),
+    0 0 12px var(--panel-border-glow);
   font-size: 1rem;
 
   @media (min-width: $layout-breakpoint) {
     border: $border-width solid var(--color-primary);
     border-radius: $border-radius-section;
   }
-}
 
-nav ul {
-  width: 100%;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  @media (min-width: $layout-breakpoint) {
-    flex-direction: column;
-  }
-}
-
-nav li {
-  width: 50%;
-
-  @media (min-width: $layout-breakpoint) {
+  ul {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: $layout-breakpoint) {
+      flex-direction: column;
+    }
   }
-}
 
-nav li:nth-child(n + 3) {
-  border-top: $border-width solid var(--color-primary);
-}
+  li {
+    width: 50%;
 
-nav li:nth-child(odd) {
-  border-right: $border-width solid var(--color-primary);
+    @media (min-width: $layout-breakpoint) {
+      width: 100%;
+    }
+
+    &:nth-child(n + 3) {
+      border-top: $border-width solid var(--color-primary);
+    }
+
+    &:nth-child(odd) {
+      border-right: $border-width solid var(--color-primary);
+
+      @media (min-width: $layout-breakpoint) {
+        border-right: none;
+      }
+    }
+  }
 
   @media (min-width: $layout-breakpoint) {
-    border-right: none;
+    li + li {
+      border-top: $border-width solid var(--color-primary);
+    }
   }
-}
 
-@media (min-width: $layout-breakpoint) {
-  nav li + li {
-    border-top: $border-width solid var(--color-primary);
+  a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1em;
+    line-height: 1;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.18s ease;
+
+    @media (min-width: $layout-breakpoint) {
+      padding: 1.25em;
+      font-size: 1.25rem;
+    }
+
+    &::after {
+      content: "→";
+      margin-left: auto;
+      padding-left: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+
+      @media (min-width: $layout-breakpoint) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &[href^="#"]::after {
+      content: "↴";
+    }
+
+    &:hover {
+      @include utility-link-box-flicker;
+    }
   }
-}
-
-nav a {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  position: relative;
-  padding: 1em;
-  line-height: 1;
-  font-size: 1rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
 
   @media (min-width: $layout-breakpoint) {
-    font-size: 1.25rem;
-    padding: 1.25em;
+    li:first-child a {
+      border-top-left-radius: calc($border-radius-section - $border-width);
+      border-top-right-radius: calc($border-radius-section - $border-width);
+    }
+
+    li:last-child a {
+      border-bottom-left-radius: calc($border-radius-section - $border-width);
+      border-bottom-right-radius: calc($border-radius-section - $border-width);
+    }
   }
-}
-
-nav a::after {
-  content: "→";
-  margin-left: auto;
-  padding-left: 0.5rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-
-  @media (min-width: $layout-breakpoint) {
-    font-size: 1.5rem;
-  }
-}
-
-nav a[href^="#"]::after {
-  content: "↴";
-}
-
-// Match nav border-radius so hover doesn't break rounded corners
-@media (min-width: $layout-breakpoint) {
-  nav li:first-child a {
-    border-top-left-radius: calc($border-radius-section - $border-width);
-    border-top-right-radius: calc($border-radius-section - $border-width);
-  }
-
-  nav li:last-child a {
-    border-bottom-left-radius: calc($border-radius-section - $border-width);
-    border-bottom-right-radius: calc($border-radius-section - $border-width);
-  }
-}
-
-nav a:hover {
-  background-color: var(--color-primary);
-  color: var(--color-surface);
 }

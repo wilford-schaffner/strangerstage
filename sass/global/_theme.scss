@@ -1,4 +1,7 @@
-$color-primary: #1d1d1f !default;
+@use "sass:color";
+@use "sass:map";
+
+$color-primary: #c41e3a !default;
 $color-primary-alt: #ddd !default;
 $color-secondary: #fff !default;
 $color-background: #f2f2f2 !default;
@@ -12,14 +15,14 @@ $brand-colors: (
   secondary: $color-secondary,
 ) !default;
 
-$color-body: scale-color(
+$color-body: color.scale(
   $color-primary,
   $lightness: -30%,
   $saturation: -50%
 ) !default;
-$color-gray: mix(#767676, $color-body, 70%) !default;
+$color-gray: color.mix(#767676, $color-body, $weight: 70%) !default;
 
-$colors: map-merge(
+$colors: map.merge(
   $brand-colors,
   (
     background: $color-background,
@@ -30,7 +33,7 @@ $colors: map-merge(
 );
 
 @function color($key) {
-  @return map-get($colors, $key);
+  @return map.get($colors, $key);
 }
 
 @function svgColor($color) {
@@ -84,4 +87,14 @@ $font-sizes: (
   --border-width: #{$border-width};
   --border-radius-section: #{$border-radius-section};
   --border-radius-pill: #{$border-radius-pill};
+
+  // Translucent black panel surface + subtle red border glow
+  --color-surface-alpha: rgba(0, 0, 0, 0.75);
+  --panel-border-glow: rgba(255, 77, 77, 0.28);
+  --panel-border-glow-soft: rgba(255, 77, 77, 0.14);
+
+  // Red glow for headings
+  --glow-color: #ff4d4d;
+  --glow-color-2: #ff4d4d;
+  --glow-stroke: #330000;
 }

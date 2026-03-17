@@ -1,11 +1,18 @@
 // Composition: where things go (flow, position, main content panel structure)
 
+@use "../global/theme" as *;
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
   background-color: var(--color-background);
+  background-image: url("background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 
   @media (min-width: $layout-breakpoint) {
     padding-top: 8rem;
@@ -98,38 +105,18 @@ article,
   box-sizing: border-box;
   border: $border-width solid var(--color-primary);
   border-radius: $border-radius-section;
-  box-shadow: $shadow-section;
+  box-shadow:
+    0 0 0 1px var(--panel-border-glow-soft),
+    0 0 14px var(--panel-border-glow),
+    $shadow-section;
   padding: 2rem;
   position: relative;
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-alpha);
+  backdrop-filter: blur(6px);
 
   @media (min-width: $layout-breakpoint) {
     padding: 4rem;
   }
-}
-
-article > * + *,
-aside .container > * + * {
-  margin-top: 1em;
-}
-
-article > * + h1,
-article > * + h2,
-article > * + h3,
-article > * + h4,
-aside .container > * + h1,
-aside .container > * + h2,
-aside .container > * + h3,
-aside .container > * + h4 {
-  margin-top: 1.5em;
-}
-
-section + section {
-  margin-top: 2em;
-}
-
-section > * + * {
-  margin-top: 1em;
 }
 
 aside:not(#sponsor-footer) {

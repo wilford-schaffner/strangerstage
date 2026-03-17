@@ -1,3 +1,5 @@
+@use "theme" as *;
+
 body {
   font-family: var(--font-family);
   font-size: var(--font-size-text);
@@ -12,6 +14,16 @@ h5,
 h6 {
   font-family: var(--font-family-heading);
   font-weight: 700;
+  color: var(--glow-color-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  -webkit-text-stroke: 1px var(--glow-stroke);
+  text-shadow:
+    0 2px 2px #000,
+    0 0 4px rgba(255, 120, 120, 0.75),
+    0 0 10px rgba(255, 77, 77, 0.45),
+    0 0 20px rgba(255, 77, 77, 0.32);
+  animation: none;
 }
 
 h1 {
@@ -44,12 +56,81 @@ blockquote {
   margin-left: 0;
   margin-right: 0;
   padding: 1.25em 1.5em;
-  background-color: var(--color-highlight-bg);
-  color: var(--color-highlight);
+  background-color: rgba(0, 0, 0, 0.92);
+  color: var(--glow-color-2);
+  border: $border-width solid var(--glow-color-2);
   border-radius: $border-radius;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 120, 120, 0.75),
+    inset 0 0 10px rgba(255, 210, 210, 0.35),
+    inset 0 0 22px rgba(255, 77, 77, 0.45),
+    0 0 18px rgba(255, 77, 77, 0.62),
+    0 0 34px rgba(255, 77, 77, 0.42);
+  animation: how-it-works-flicker 2.2s infinite;
 
   a {
-    color: var(--color-highlight);
-    border-bottom-color: var(--color-highlight);
+    color: var(--glow-color-2);
+    border-bottom-color: var(--glow-color-2);
   }
+}
+
+@keyframes how-it-works-flicker {
+  0%,
+  68%,
+  70%,
+  72%,
+  74%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 120, 120, 0.75),
+      inset 0 0 10px rgba(255, 210, 210, 0.35),
+      inset 0 0 22px rgba(255, 77, 77, 0.45),
+      0 0 18px rgba(255, 77, 77, 0.62),
+      0 0 34px rgba(255, 77, 77, 0.42);
+  }
+
+  69%,
+  73% {
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 77, 77, 0.12),
+      inset 0 0 4px rgba(255, 77, 77, 0.1),
+      0 0 6px rgba(255, 77, 77, 0.16);
+  }
+}
+
+article > * + *,
+aside .container > * + * {
+  margin-top: 1em;
+}
+
+article > * + h1,
+article > * + h2,
+article > * + h3,
+article > * + h4,
+aside .container > * + h1,
+aside .container > * + h2,
+aside .container > * + h3,
+aside .container > * + h4 {
+  margin-top: 1.5em;
+}
+
+section + section {
+  margin-top: 2em;
+}
+
+section > * + * {
+  margin-top: 1em;
+}
+
+article ol {
+  padding-left: 20px;
+}
+
+article ol li + li,
+aside .container ol li + li {
+  margin-top: 0.5em;
+}
+
+a {
+  color: inherit;
 }

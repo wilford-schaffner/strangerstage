@@ -1,39 +1,16 @@
 // Block: #contribute + #files + download buttons
 
+@use "../global/theme" as *;
+@use "../utility/logomark" as *;
+
 .link-downloadcss,
 .link-downloadhtml,
 .link-codepen {
-  display: inline-flex;
-  padding: 0.75em 1em;
-  font-size: 1rem;
-  font-weight: 600;
-  border: $border-width solid var(--color-primary);
-  border-radius: $border-radius-pill;
-  text-decoration: none;
-  box-shadow: $shadow-section-inset;
+  @include utility-pill-action;
   margin-right: 0.25em;
   margin-top: 0.5em;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 
-  @media (min-width: $layout-breakpoint) {
-    font-size: 1.125rem;
+  &:hover {
+    @include utility-pill-action-hover;
   }
-}
-
-.link-downloadcss:hover,
-.link-downloadhtml:hover,
-.link-codepen:hover {
-  background-color: var(--color-primary);
-  box-shadow: $shadow-section-inset-hover;
-  color: var(--color-surface);
-  border-color: var(--color-primary);
-}
-
-article ol {
-  padding-left: 20px;
-}
-
-article ol li + li,
-aside .container ol li + li {
-  margin-top: 0.5em;
 }

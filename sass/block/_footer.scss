@@ -1,67 +1,62 @@
 // Block: .page-footer bar and link list
 
+@use "../global/theme" as *;
+@use "../utility/logomark" as *;
+
 .page-footer {
   margin-top: 4rem;
-  background-color: var(--color-surface);
   padding: 2rem;
   border-top: $border-width solid var(--color-primary);
   border-radius: $border-radius-section;
+  background-color: var(--color-surface-alpha);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 0 0 1px var(--panel-border-glow-soft),
+    0 0 12px var(--panel-border-glow);
   text-align: center;
-}
 
-.page-footer .container > * + * {
-  margin-top: 1em;
-}
+  .container {
+    > * + * {
+      margin-top: 1em;
+    }
 
-.page-footer .container > * + h1,
-.page-footer .container > * + h2,
-.page-footer .container > * + h3,
-.page-footer .container > * + h4 {
-  margin-top: 1.5em;
-}
-
-.page-footer ul {
-  list-style: none;
-  padding: 0;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.page-footer ul li {
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
-  display: inline-flex;
-}
-
-.page-footer ul a {
-  display: flex;
-  align-items: center;
-  padding: 0.75em 1em;
-  font-size: 1rem;
-  font-weight: 600;
-  border: $border-width solid var(--color-primary);
-  border-radius: $border-radius-pill;
-  text-decoration: none;
-  box-shadow: $shadow-section-inset;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-
-  @media (min-width: $layout-breakpoint) {
-    font-size: 1.125rem;
+    > * + h1,
+    > * + h2,
+    > * + h3,
+    > * + h4 {
+      margin-top: 1.5em;
+    }
   }
-}
 
-.page-footer ul a:hover {
-  background-color: var(--color-primary);
-  box-shadow: $shadow-section-inset-hover;
-  color: var(--color-surface);
-  border-color: var(--color-primary);
-}
+  ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
 
-.page-footer ul a svg {
-  width: 1em;
-  height: 1em;
-  margin-right: 0.25em;
-  fill: currentColor;
+    li {
+      display: inline-flex;
+      margin-top: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    a {
+      @include utility-pill-action;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        @include utility-pill-action-hover;
+      }
+
+      svg {
+        width: 1em;
+        height: 1em;
+        margin-right: 0.25em;
+        fill: currentColor;
+      }
+    }
+  }
 }

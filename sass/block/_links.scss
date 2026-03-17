@@ -1,28 +1,13 @@
 // Block: in-content link styles (no new classes)
 
+@use "../utility/logomark" as *;
+
 #about a,
 #guidelines a,
-#contribute ol a,
 #contribute p a,
+#contribute ol a,
 .profile a,
 .link-allstyles,
 .page-footer p a {
-  text-decoration: none;
-  font-weight: 600;
-  border-bottom: $border-width solid var(--color-primary);
-  transition: border-bottom-width 0.2s ease;
-}
-
-#about a:hover,
-#guidelines a:hover,
-#contribute ol a:hover,
-#contribute p a:hover,
-.profile a:hover,
-.link-allstyles:hover,
-.page-footer p a:hover {
-  border-bottom-width: 2px;
-}
-
-a {
-  color: inherit;
+  @include utility-inline-link;
 }

@@ -1,5 +1,8 @@
 // Block: profile outer/inner look, stripe animation (hidden per design)
 
+@use "../global/theme" as *;
+@use "../utility/logomark" as *;
+
 .profile {
   display: none;
   border: $border-width solid var(--color-primary);
@@ -24,52 +27,49 @@
     animation-duration: 0.01ms;
     animation-iteration-count: 1;
   }
+
+  .container {
+    padding: 2em;
+    border: $border-width solid var(--color-primary);
+    border-radius: $border-radius;
+    background-color: var(--color-surface);
+
+    a {
+      @include utility-inline-link;
+    }
+
+    @media (min-width: $layout-breakpoint) {
+      padding: 1em;
+    }
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  ul {
+    margin-bottom: 1em;
+    padding: 0;
+    list-style: none;
+
+    li {
+      + li {
+        margin-top: 0.5em;
+      }
+
+      span:first-child {
+        font-weight: 600;
+      }
+    }
+  }
 }
 
 @keyframes scrolling-gradient {
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: 40px 0;
   }
-}
-
-.profile .container {
-  background-color: var(--color-surface);
-  padding: 2em;
-  border: $border-width solid var(--color-primary);
-  border-radius: $border-radius;
-
-  @media (min-width: $layout-breakpoint) {
-    padding: 1em;
-  }
-}
-
-.profile .container a {
-  border-bottom: $border-width solid;
-  text-decoration: none;
-  transition: border-bottom-width 0.2s ease;
-}
-
-.profile .container a:hover {
-  border-bottom-width: 2px;
-}
-
-.profile h4 {
-  font-size: 1rem;
-}
-
-.profile ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1em;
-}
-
-.profile ul li + li {
-  margin-top: 0.5em;
-}
-
-.profile ul li span:first-child {
-  font-weight: 600;
 }

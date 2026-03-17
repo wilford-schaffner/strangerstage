@@ -1,30 +1,45 @@
 // Block: #about-specific (feature list in Modern CSS section)
 
-#about ul {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-}
+@use "../global/theme" as *;
+@use "../utility/logomark" as *;
 
-#about ul li {
-  margin-right: 0.75rem;
-  margin-bottom: 0.75rem;
-  display: inline-flex;
-  padding: 0.5em 1em 0.5em 0.5em;
-  border-radius: $border-radius-pill;
-  border: $border-width solid var(--color-primary);
-  background-color: var(--color-primary-alt);
-  align-items: center;
-}
+#about {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0;
+    list-style: none;
 
-#about ul li::before {
-  content: "";
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  border: $border-width solid var(--color-primary);
-  background-color: var(--color-surface);
-  margin-right: 0.5em;
+    li {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5em 1em 0.5em 0.5em;
+      border: $border-width solid var(--glow-color-2);
+      border-radius: $border-radius-pill;
+      background-color: rgba(0, 0, 0, 0.78);
+      color: var(--glow-color-2);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 120, 120, 0.2),
+        0 0 8px rgba(255, 77, 77, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.18s ease, background-color 0.2s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+        @include utility-link-box-flicker;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        width: 0.7rem;
+        height: 0.7rem;
+        margin-right: 0.5em;
+        border: $border-width solid var(--glow-color-2);
+        border-radius: 50%;
+        background-color: rgba(255, 77, 77, 0.22);
+        box-shadow: 0 0 8px rgba(255, 77, 77, 0.5);
+      }
+    }
+  }
 }
