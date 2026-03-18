@@ -1,7 +1,7 @@
 // Block: #about-specific (feature list in Modern CSS section)
 
 @use "../global/theme" as *;
-@use "../utility/logomark" as *;
+@use "../utility/links" as *;
 
 #about {
   ul {

@@ -1,7 +1,7 @@
 // Block: nav panel, list, links, arrows, hover
 
 @use "../global/theme" as *;
-@use "../utility/logomark" as *;
+@use "../utility/links" as *;
 
 nav {
   display: flex;
